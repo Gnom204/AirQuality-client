@@ -1,0 +1,22 @@
+/* StarRating.css */
+.star-rating {
+    display: inline-flex;
+    gap: 4px;
+  }
+  
+  .star-rating button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 0;
+    line-height: 1;
+  }
+  
+  .filled {
+    color: #ffd700;
+  }
+  
+  .empty {
+    color: #ccc;
+  }

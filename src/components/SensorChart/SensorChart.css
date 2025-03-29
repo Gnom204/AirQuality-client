@@ -1,0 +1,19 @@
+.sensor-chart {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    min-height: 400px;
+  }
+
+  .sensor-chart canvas {
+    max-height: 350px;
+  }
+
+  @media (max-width: 768px) {
+    .sensor-chart {
+      margin: 10px 0;
+      padding: 10px;
+    }
+  }

@@ -1,0 +1,180 @@
+/* pages/Ratings/Ratings.css */
+.ratings-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .location-parameters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .ratings-title {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .ratings-filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .search-input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-width: 250px;
+  }
+  
+  .filter-select {
+    padding: 0.8rem;
+    border-radius: 4px;
+    background: white;
+    border: 1px solid #ddd;
+  }
+  
+  .complexes-list {
+    display: grid;
+    gap: 1.5rem;
+  }
+  
+  .complex-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .complex-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .rating-badge {
+    background: #27ae60;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: bold;
+    margin: 0 0.5rem;
+  }
+  
+  .metrics-grid {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .metric-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .metric-label {
+    min-width: 120px;
+    color: #7f8c8d;
+  }
+  
+  .metric-bar {
+    flex: 1;
+    height: 8px;
+    background: #ecf0f1;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .metric-fill {
+    height: 100%;
+    border-radius: 4px;
+  }
+  
+  .air-quality { background: #3498db; }
+  .humidity { background: #2ecc71; }
+  .noise { background: #e74c3c; }
+  .dust { background: #f1c40f; }
+  
+  .details-button {
+    width: 100%;
+    padding: 0.8rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+  }
+  
+  .details-button:hover {
+    opacity: 0.9;
+  }
+
+  .complex-image{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+
+  .complex-info{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .complex-ratings{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .complexes-list {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .complex-card {
+      padding: 1rem;
+    }
+
+    .complex-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .metrics-grid {
+    }
+
+    .metric-item {
+      align-items: flex-start;
+    }
+
+    .metric-label {
+      min-width: 0;
+    }
+
+    .details-button {
+      width: 100%;
+      padding: 0.5rem;
+    }
+    .location-parameters{
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .complex-ratings{
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+  }
+
