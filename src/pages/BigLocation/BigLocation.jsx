@@ -22,7 +22,12 @@ function BigLocation() {
             <h2 className='location-name'>{location.name}</h2>
           <p className='location-description'>{location.description}</p>
           <div className='location-parameters'>
-            <QualityIndex gas={location.gas} dust={location.dust} sound={location.sound} humidity={location.humidity} />
+            <QualityIndex gas={location.gas.map((value, index, array) => {
+              if (index === 0 || value / 15 > array[index - 1] / 15 * 1.5) {
+                return value / 15;
+              }
+              return null;
+            }).filter(Boolean)} dust={location.dust} sound={location.sound.map(value => Math.abs(value) / 15)} humidity={location.humidity} />
             <div>Оценка экспертов: ⭐{location.starsRatings.length > 0 ? calculateRate(location.starsRatings) : 'Нет оценок'}</div>
           </div>
           </div>
