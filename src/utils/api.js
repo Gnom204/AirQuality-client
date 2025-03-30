@@ -1,5 +1,5 @@
-const API_URL = "http://localhost:5000/api";
-export const IMAGE_URL = "http://localhost:5000";
+const API_URL = "http://37.252.17.105/api";
+export const IMAGE_URL = "http://37.252.17.105";
 
 export const addLocation = async (location) => {
   const response = await fetch(`${API_URL}/data/location`, {
