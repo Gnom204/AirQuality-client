@@ -136,7 +136,7 @@ const Home = () => {
             <SensorChart dataValues={location.humidity} parameterName="Влажность" unit="%" color="#4dc9f6" showPoints={true} />
           </div>
           <div className="data-card">
-            <SensorChart dataValues={location.sound.map(value => value / 12)} parameterName="Уровень шума" unit="дБ" color="#4dc9f6" showPoints={true} />
+            <SensorChart dataValues={location.sound.map(value => Math.abs(value) / 15)} parameterName="Уровень шума" unit="дБ" color="#4dc9f6" showPoints={true} />
           </div>
         <div className="data-card">
             <SensorChart dataValues={location.dust} parameterName="Наличие пыли" unit="мг/м^3" color="#4dc9f6" showPoints={true} />

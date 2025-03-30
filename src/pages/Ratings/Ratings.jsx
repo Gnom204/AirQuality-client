@@ -72,7 +72,7 @@ const getMore = (id) => {
                 <div className="metric-bar">
                   <div 
                     className="metric-fill noise" 
-                    style={{ width: `${complex.sound.reduce((acc, cur) => acc + cur) / complex.sound.length/12}%` }}
+                    style={{ width: `${complex.sound.map(value => Math.abs(value) / 15).reduce((acc, cur) => acc + cur) / complex.sound.length}%` }}
                   ></div>
                 </div>
               </div>
@@ -81,7 +81,7 @@ const getMore = (id) => {
                 <div className="metric-bar">
                   <div 
                     className="metric-fill dust" 
-                    style={{ width: `${complex.dust.reduce((acc, cur) => acc + cur) / complex.dust.length*10}%` }}
+                    style={{ width: `${complex.dust.reduce((acc, cur) => acc + cur) / complex.dust.length}%` }}
                   ></div>
                 </div>
               </div>
