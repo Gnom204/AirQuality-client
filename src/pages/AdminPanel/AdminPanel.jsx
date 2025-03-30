@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import AdminModal from '../../components/AdminModal/AdminModal';
 import './AdminPanel.css';
-import { getLocations, rateLocation, updateDescription, updateLocation } from '../../utils/api';
+import { deleteLocation, getLocations, rateLocation, updateDescription, updateLocation } from '../../utils/api';
 
 const AdminPanel = () => {
   
@@ -40,6 +40,12 @@ useEffect(() => {
     })
   };
 
+  const handleDelete = (id) => {
+deleteLocation(id).then((res) => {
+  console.log(res)
+})
+  };
+
   const handleEdit = (sensor) => {
     setSelectedSensor(sensor);
     setIsModalOpen(true);
@@ -69,7 +75,7 @@ useEffect(() => {
               <td>{new Date(sensor.createdAt).toLocaleDateString()}</td>
               <td>
                 <button className="table-button edit" onClick={() => handleEdit(sensor)}>Редактировать</button>
-                <button className="table-button delete">Удалить</button>
+                <button onClick={() => handleDelete(sensor._id)} className="table-button delete">Удалить</button>
               </td>
             </tr>
           ))}

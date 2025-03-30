@@ -24,6 +24,17 @@ export const getLocations = async () => {
   return response.json();
 };
 
+export const deleteLocation = async (id) => {
+  const response = await fetch(`${API_URL}/data/location/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+    },
+  });
+  return response.json();
+};
+
 export const getLocation = async (name) => {
   const response = await fetch(`${API_URL}/data/location`, {
     method: "GET",
