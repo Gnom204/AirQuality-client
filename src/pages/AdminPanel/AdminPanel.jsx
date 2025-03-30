@@ -18,7 +18,8 @@ useEffect(() => {
   const handleSaveImage = (image) => {
     console.log('Сохраненные данные:', image);
     console.log(selectedSensor)
-    updateLocation(selectedSensor.name, image).then((res) => {
+    console.log(image)
+    updateLocation(selectedSensor.name, image.image).then((res) => {
       console.log(res)
     })
   };

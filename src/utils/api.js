@@ -44,6 +44,8 @@ export const updateLocation = async (name, file) => {
     formData.append("image", file);
   }
 
+  console.log(formData);
+
   const response = await fetch(`${API_URL}/data/location`, {
     method: "PUT",
     headers: {
