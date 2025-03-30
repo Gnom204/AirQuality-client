@@ -1,4 +1,3 @@
-// StarRating.jsx (переиспользуемый компонент оценки)
 import { useState } from 'react';
 import './StarRating.css';
 

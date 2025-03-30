@@ -12,7 +12,6 @@ const SensorChart = ({
   color = '#4dc9f6',
   showPoints = true
 }) => {
-  // Преобразование данных в подходящий формат
   const chartData = {
     labels: Array.isArray(dataValues) 
       ? dataValues.map((_, i) => i + 1) 
@@ -29,7 +28,6 @@ const SensorChart = ({
     }]
   };
 
-  // Конфигурация графика
   const chartOptions = {
     responsive: true,
     maintainAspectRatio: false,

@@ -23,8 +23,6 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('authToken');
     if (token && !user) {
-      // Здесь можно добавить запрос для проверки токена
-      // Например: fetchUserData().then(login).catch(logout)
       setIsLoggedIn(true);
     }
   }, [user, login, logout]);

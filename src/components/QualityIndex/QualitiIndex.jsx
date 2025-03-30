@@ -21,14 +21,13 @@ const QualityIndex = ({ gas, dust, humidity, sound }) => {
 
     // const qualityIndex = calculateQualityIndex(gas, dust, humidity, sound);
 const qualityIndex = calculateAirQuality(humidity, sound, dust, gas);    
-    // Определяем цвет фона в зависимости от оценки
     let backgroundColor;
     if (qualityIndex >= 7) {
-        backgroundColor = '#8bc34a'; // Light green
+        backgroundColor = '#8bc34a'; 
     } else if (qualityIndex >= 4) {
-        backgroundColor = '#f7dc6f'; // Light yellow
+        backgroundColor = '#f7dc6f'; 
     } else {
-        backgroundColor = '#e53935'; // Light red
+        backgroundColor = '#e53935'; 
     }
 
     return (
