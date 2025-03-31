@@ -7,13 +7,33 @@ import calculateRate from '../../utils/getStarsRate';
 import { useNavigate } from 'react-router-dom';
 
 const Ratings = () => {
- const [complexes, setComplexes] = useState([]);
+  const [complexes, setComplexes] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sortType, setSortType] = useState('rating');
+  const navigate = useNavigate();
 
-const navigate = useNavigate();
 
   useEffect(() => {
     getLocations().then((locations) => setComplexes(locations));
   }, []);
+
+  const getFilteredAndSortedComplexes = () => {
+    return complexes
+      .filter(complex => 
+        complex.name.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+      .sort((a, b) => {
+        if (sortType === 'airQuality') {
+          const aQuality = calculateAirQuality(a.humidity, a.sound, a.dust, a.gas);
+          const bQuality = calculateAirQuality(b.humidity, b.sound, b.dust, b.gas);
+          return bQuality - aQuality;
+        } else {
+          const aRating = a.starsRatings.length > 0 ? calculateRate(a.starsRatings) : 0;
+          const bRating = b.starsRatings.length > 0 ? calculateRate(b.starsRatings) : 0;
+          return bRating - aRating;
+        }
+      });
+  };
 
 const getMore = (id) => {
   navigate('/location/' + id);
@@ -25,15 +45,26 @@ const getMore = (id) => {
       <h1 className="ratings-title">Рейтинг жилых комплексов</h1>
       
       <div className="ratings-filters">
-        <input type="text" placeholder="Поиск по названию" className="search-input" />
-        <select className="filter-select">
-          <option>Сортировка по рейтингу</option>
-          <option>Сортировка по качеству воздуха</option>
+        <input 
+          type="text" 
+          placeholder="Поиск по названию" 
+          className="search-input"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <select 
+          className="filter-select"
+          value={sortType}
+          onChange={(e) => setSortType(e.target.value)}
+        >
+          <option value="rating">Сортировка по рейтингу</option>
+          <option value="airQuality">Сортировка по качеству воздуха</option>
         </select>
       </div>
+      
 {console.log(complexes)}
       <div className="complexes-list">
-        {complexes.map((complex, index) => (
+      {getFilteredAndSortedComplexes().map((complex, index) => (
           <div key={index} className="complex-card">
             <div className="complex-header">
               <div className='complex-info'>

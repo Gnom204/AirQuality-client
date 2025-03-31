@@ -51,11 +51,11 @@ const AdminModal = ({
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h2>Редактирование устройства</h2>
+        <h2>Редактирование информации</h2>
 
         <form onSubmit={handleSaveRating}>
           <div className="form-group">
-            <label>Оценка устройства:</label>
+            <label>Выставить оценку:</label>
             <StarRating rating={rating} onRate={setRating} />
           </div>
 

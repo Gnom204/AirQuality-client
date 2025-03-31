@@ -176,5 +176,8 @@
       align-items: flex-start;
       gap: 1rem;
     }
+    .rating-badge{
+      margin: 10px 0;
+    }
   }
 
