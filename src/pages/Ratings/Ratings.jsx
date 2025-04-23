@@ -1,4 +1,3 @@
-// pages/Ratings/Ratings.jsx
 import { useEffect, useState } from 'react';
 import './Ratings.css';
 import { getLocations, IMAGE_URL } from '../../utils/api';

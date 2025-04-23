@@ -8,14 +8,12 @@ const AdminModal = ({
   onSaveRating, 
   onSaveDescription, 
   onSaveImage, 
-  sensor // Добавляем пропс sensor
+  sensor 
 }) => {
   const [image, setImage] = useState(null);
-  // Инициализируем состояния данными из sensor
   const [rating, setRating] = useState(sensor?.rating || 0);
   const [description, setDescription] = useState(sensor?.description || '');
 
-  // Обновляем состояния при изменении sensor
   useEffect(() => {
     if (sensor) {
       setRating(sensor.rating || 0);
@@ -25,7 +23,6 @@ const AdminModal = ({
 
   if (!isOpen) return null;
 
-  // Остальной код без изменений
   const handleFileChange = (e) => {
     setImage(e.target.files[0]);
   };

@@ -1,4 +1,3 @@
-// pages/Home/Home.jsx
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Missions from '../../components/Missions/Missions';

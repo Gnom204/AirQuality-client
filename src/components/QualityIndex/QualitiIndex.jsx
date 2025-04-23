@@ -1,7 +1,6 @@
 import React from 'react';
 import calculateAirQuality from '../../utils/getRate';
 
-// Компонент QualityIndex
 const QualityIndex = ({ gas, dust, humidity, sound }) => {
 //   const calculateQualityIndex = (gas, dust, humidity, sound) => {
 //     // Применяем деление на 12 к каждому значению звука

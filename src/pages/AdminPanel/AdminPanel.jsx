@@ -1,4 +1,3 @@
-// pages/AdminPanel/AdminPanel.jsx
 import { useEffect, useState } from 'react';
 import AdminModal from '../../components/AdminModal/AdminModal';
 import './AdminPanel.css';

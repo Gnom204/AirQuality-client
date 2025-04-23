@@ -11,7 +11,6 @@ import ProtectedRoute from "./utils/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
 import BigLocation from "./pages/BigLocation/BigLocation";
 
-// App.js
 function App() {
   return (
     <AuthProvider>

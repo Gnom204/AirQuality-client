@@ -1,4 +1,3 @@
-// components/Header/Header.jsx
 import { useEffect, useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { getUserByToken } from '../../utils/api';
@@ -29,7 +28,7 @@ const Header = () => {
     };
   
     checkAuth();
-  }, [login, logout]); // Добавляем logout в зависимости
+  }, [login, logout]); 
 
   const handleLogout = () => {
     logout();

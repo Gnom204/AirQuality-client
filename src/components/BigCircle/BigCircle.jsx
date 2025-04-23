@@ -10,7 +10,6 @@ import './BigCircle.css';
 const CentralNodeComponent = () => {
   const [hoveredNode, setHoveredNode] = useState(null);
   
-  // Массив данных для узлов (замените на свои данные)
   const nodes = [
     { id: 1, title: "Микроконтроллер", angle: 0, image: ArduinoEsp, info: "Микроконтроллер Arduino с интернет модулем esp8266, который позволяет отправлять данные на сервер" },
     { id: 2, title: "Датчик темепературы и влажности", angle: 72, image: DHT11, info: "Датчик DHT11, который позволяет измерять температуру и влажность воздуха" },
@@ -21,7 +20,6 @@ const CentralNodeComponent = () => {
 
   return (
     <div className="container">
-      {/* Центральный круг */}
       <div className="main-circle">
         <img 
           src={arduinoImg} 
@@ -76,4 +74,5 @@ const CentralNodeComponent = () => {
 };
 
 export default CentralNodeComponent;
+
 
