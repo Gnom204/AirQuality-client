@@ -4,6 +4,7 @@ import { getLocations, IMAGE_URL } from '../../utils/api';
 import calculateAirQuality from '../../utils/getRate';
 import calculateRate from '../../utils/getStarsRate';
 import { useNavigate } from 'react-router-dom';
+import QualityIndex from '../../components/QualityIndex/QualitiIndex';
 
 const Ratings = () => {
   const [complexes, setComplexes] = useState([]);
@@ -71,8 +72,12 @@ const getMore = (id) => {
               <h3>{complex.name}</h3>
               </div>
               <div className="complex-ratings">
-              <span className="rating-badge">Индекс качества: {calculateAirQuality(complex.humidity, complex.sound, complex.dust, complex.gas)}/10</span>
-              { <span>Рейтинг экспертов: ⭐{complex.starsRatings.length > 0 ? calculateRate(complex.starsRatings) : 'Нет оценок'}</span>}
+              <QualityIndex gas={complex.gas.map((value, index, array) => {
+              if (index === 0 || value / 15 > array[index - 1] / 15 * 1.5) {
+                return value / 15;
+              }
+              return null;
+            }).filter(Boolean)} dust={complex.dust} sound={complex.sound.map(value => Math.abs(value) / 15)} humidity={complex.humidity} />              { <span>Рейтинг экспертов: ⭐{complex.starsRatings.length > 0 ? calculateRate(complex.starsRatings) : 'Нет оценок'}</span>}
               </div>
             </div>
             
