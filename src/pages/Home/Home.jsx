@@ -5,6 +5,7 @@ import './Home.css';
 import { getLocations } from '../../utils/api';
 import SensorChart from '../../components/SensorChart/SensorChart';
 import CentralNodeComponent from '../../components/BigCircle/BigCircle';
+import normalizeAndSmoothGroups from '../../utils/smoothArray';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -135,7 +136,7 @@ const Home = () => {
             <SensorChart dataValues={location.humidity} parameterName="Влажность" unit="%" color="#4dc9f6" showPoints={true} />
           </div>
           <div className="data-card">
-            <SensorChart dataValues={location.sound.map(value => Math.abs(value) / 15)} parameterName="Уровень шума" unit="дБ" color="#4dc9f6" showPoints={true} />
+            <SensorChart dataValues={normalizeAndSmoothGroups(location.sound)} parameterName="Уровень шума" unit="дБ" color="#4dc9f6" showPoints={true} />
           </div>
         <div className="data-card">
             <SensorChart dataValues={location.dust} parameterName="Наличие пыли" unit="мг/м^3" color="#4dc9f6" showPoints={true} />
