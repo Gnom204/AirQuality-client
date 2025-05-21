@@ -19,7 +19,7 @@ const QualityIndex = ({ gas, dust, humidity, sound }) => {
 // };
 
     // const qualityIndex = calculateQualityIndex(gas, dust, humidity, sound);
-const qualityIndex = calculateAirQuality(humidity, sound, dust, gas, setQuailtyIndex);    
+const qualityIndex = calculateAirQuality(humidity, sound, dust, gas);    
     let backgroundColor;
     if (qualityIndex >= 7) {
         backgroundColor = '#8bc34a'; 
