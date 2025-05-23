@@ -1,6 +1,15 @@
 import React from 'react';
 import calculateAirQuality from '../../utils/getRate';
 
+/**
+ * @function QualityIndex
+ * @description Компонент для отображения индекса качества воздуха.
+ * @param {number[]} gas - Массив значений концентрации газа.
+ * @param {number[]} dust - Массив значений концентрации пыли.
+ * @param {number[]} humidity - Массив значений влажности.
+ * @param {number[]} sound - Массив значений звука.
+ * @returns {JSX.Element} - Компонент, отображающий индекс качества воздуха.
+ */
 const QualityIndex = ({ gas, dust, humidity, sound }) => {
 //   const calculateQualityIndex = (gas, dust, humidity, sound) => {
 //     // Применяем деление на 12 к каждому значению звука

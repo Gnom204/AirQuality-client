@@ -1,3 +1,12 @@
+/**
+ * @function normalizeAndSmoothGroups
+ * @description Нормализует и сглаживает группы чисел в массиве.
+ * @param {number[]} arr - Массив чисел для нормализации и сглаживания.
+ * @param {number} [targetMin=30] - Минимальное значение в целевом диапазоне.
+ * @param {number} [targetMax=80] - Максимальное значение в целевом диапазоне.
+ * @param {number} [groupSize=10] - Размер группы для сглаживания.
+ * @returns {number[]} Нормализованный и сглаженный массив.
+ */
 function normalizeAndSmoothGroups(
   arr,
   targetMin = 30,

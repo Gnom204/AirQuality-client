@@ -1,16 +1,23 @@
+/**
+ * @function calculateAirQuality
+ * @description расчет индекса качества воздуха
+ * @param {number[]} humidityValues - значения влажности
+ * @param {number[]} soundValues - значения шума
+ * @param {number[]} dustValues - значения концентрации пыли
+ * @param {number[]} gasValues - значения концентрации газов
+ * @returns {number} индекс качества воздуха (от 1 до 10)
+ */
 function calculateAirQuality(
   humidityValues,
   soundValues,
   dustValues,
   gasValues
 ) {
-  // Нормативные значения
   // const DUST_NORM = 0.025; // мг/м³ (PM2.5 по ВОЗ)
   const GAS_NORM = 50; // ppm (для бытовых газов)
   const HUMIDITY_IDEAL = 45; // идеальная влажность
   const SOUND_NORM = 55; // дБ
 
-  // Рассчитываем компоненты оценки
   const dustPenalty = Math.sqrt(
     (dustValues.reduce((a, b) => a + b) / dustValues.length) * 10
   );
@@ -28,7 +35,6 @@ function calculateAirQuality(
         10
       : 0;
 
-  // Итоговая оценка с ограничением от 1 до 10
   let score = 10 - (dustPenalty + gasPenalty + humidityDiff + soundPenalty);
 
   return Math.min(Math.max(score.toFixed(1), 1), 10);

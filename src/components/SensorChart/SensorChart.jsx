@@ -5,6 +5,15 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
+/**
+ * Component for displaying sensor data as a line chart
+ * @param {array|number} dataValues - sensor data
+ * @param {string} parameterName - name of parameter being measured
+ * @param {string} unit - unit of measurement
+ * @param {string} color - color of line
+ * @param {boolean} showPoints - show data points
+ * @returns {JSX.Element}
+ */
 const SensorChart = ({ 
   dataValues,
   parameterName = 'Parameter',

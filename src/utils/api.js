@@ -1,6 +1,25 @@
+/**
+ * URL для API
+ * @constant
+ * @type {string}
+ * @default
+ */
 const API_URL = "http://37.252.17.105/api";
+/**
+ * URL для изображений
+ * @constant
+ * @type {string}
+ * @default
+ */
 export const IMAGE_URL = "http://37.252.17.105";
 
+/**
+ * Добавляет новую локацию
+ * @async
+ * @function
+ * @param {Object} location - Объект с данными локации
+ * @returns {Promise<Object>} - Объект с данными созданной локации
+ */
 export const addLocation = async (location) => {
   const response = await fetch(`${API_URL}/data/location`, {
     method: "POST",
@@ -13,6 +32,12 @@ export const addLocation = async (location) => {
   return response.json();
 };
 
+/**
+ * Получает список локаций
+ * @async
+ * @function
+ * @returns {Promise<Array<Object>>} - Массив объектов с данными локаций
+ */
 export const getLocations = async () => {
   const response = await fetch(`${API_URL}/data/`, {
     method: "GET",
@@ -24,6 +49,13 @@ export const getLocations = async () => {
   return response.json();
 };
 
+/**
+ * Удаляет локацию
+ * @async
+ * @function
+ * @param {string} id - ID локации
+ * @returns {Promise<Object>} - Объект с данными удаленной локации
+ */
 export const deleteLocation = async (id) => {
   const response = await fetch(`${API_URL}/data/location/${id}`, {
     method: "DELETE",
@@ -35,6 +67,13 @@ export const deleteLocation = async (id) => {
   return response.json();
 };
 
+/**
+ * Получает локацию по имени
+ * @async
+ * @function
+ * @param {string} name - Имя локации
+ * @returns {Promise<Object>} - Объект с данными локации
+ */
 export const getLocation = async (name) => {
   const response = await fetch(`${API_URL}/data/location`, {
     method: "GET",
@@ -47,6 +86,14 @@ export const getLocation = async (name) => {
   return response.json();
 };
 
+/**
+ * Обновляет локацию
+ * @async
+ * @function
+ * @param {string} name - Имя локации
+ * @param {File} [file] - Изображение локации
+ * @returns {Promise<Object>} - Объект с данными обновленной локации
+ */
 export const updateLocation = async (name, file) => {
   console.log(file, name);
   const formData = new FormData();
@@ -68,6 +115,14 @@ export const updateLocation = async (name, file) => {
   return response.json();
 };
 
+/**
+ * Оценивает локацию
+ * @async
+ * @function
+ * @param {string} name - Имя локации
+ * @param {number} stars - Оценка
+ * @returns {Promise<Object>} - Объект с данными обновленной локации
+ */
 export const rateLocation = async (name, stars) => {
   console.log(name, stars);
   const response = await fetch(`${API_URL}/data/rate`, {
@@ -81,6 +136,13 @@ export const rateLocation = async (name, stars) => {
   return response.json();
 };
 
+/**
+ * Регистрирует пользователя
+ * @async
+ * @function
+ * @param {Object} data - Объект с данными пользователя
+ * @returns {Promise<Object>} - Объект с данными созданного пользователя
+ */
 export const registerUser = async (data) => {
   const response = await fetch(`${API_URL}/auth/register`, {
     method: "POST",
@@ -92,6 +154,13 @@ export const registerUser = async (data) => {
   return response.json();
 };
 
+/**
+ * Логинит пользователя
+ * @async
+ * @function
+ * @param {Object} data - Объект с данными пользователя
+ * @returns {Promise<Object>} - Объект с данными созданного пользователя
+ */
 export const loginUser = async (data) => {
   const response = await fetch(`${API_URL}/auth/login`, {
     method: "POST",
@@ -103,6 +172,12 @@ export const loginUser = async (data) => {
   return response.json();
 };
 
+/**
+ * Получает данные пользователя по токену
+ * @async
+ * @function
+ * @returns {Promise<Object>} - Объект с данными пользователя
+ */
 export const getUserByToken = async () => {
   const token = localStorage.getItem("authToken");
   if (!token) {
@@ -119,6 +194,14 @@ export const getUserByToken = async () => {
   return response.json();
 };
 
+/**
+ * Обновляет описание локации
+ * @async
+ * @function
+ * @param {string} name - Имя локации
+ * @param {string} description - Описание локации
+ * @returns {Promise<Object>} - Объект с данными обновленной локации
+ */
 export const updateDescription = async (name, description) => {
   const response = await fetch(`${API_URL}/data/description`, {
     method: "PUT",
@@ -130,6 +213,14 @@ export const updateDescription = async (name, description) => {
   });
   return response.json();
 };
+
+/**
+ * Получает локацию по ID
+ * @async
+ * @function
+ * @param {string} id - ID локации
+ * @returns {Promise<Object>} - Объект с данными локации
+ */
 export const getLocationById = async (id) => {
   const response = await fetch(`${API_URL}/data/location/${id}`, {
     method: "GET",
